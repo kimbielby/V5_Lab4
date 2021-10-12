@@ -25,6 +25,6 @@ public class ProcessA {
         // 1. Mutual exclusion: Each Semaphore only has 1 permit, so only one process can have it at a time
         // 2. Hold and wait: Each process can request as many Semaphores as they like, providing there is an available permit
         // 3. No preemption: Due to the acquire() method another process must wait until the permit for that particular permit is released
-        // 4. Circular wait: There are two processes trying to get both Semaphores 
+        // 4. Circular wait: There are two processes trying to get both Semaphores
     }
 }
