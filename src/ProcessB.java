@@ -12,13 +12,13 @@ public class ProcessB {
     }
 
     void procB(Semaphore sem1, Semaphore sem2){
-        allSemaphs.p(sem1);
         allSemaphs.p(sem2);
+        allSemaphs.p(sem1);
         try {
             wait();
         }
         catch (InterruptedException e){}
-        allSemaphs.v(sem2);
         allSemaphs.v(sem1);
+        allSemaphs.v(sem2);
     }
 }
