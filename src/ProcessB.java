@@ -1,24 +1,24 @@
 import java.util.concurrent.Semaphore;
 
-public class ProcessB {
-    private AllSemaphores allSemaphs;
-    Semaphore sem1;
-    Semaphore sem2;
-    public ProcessB(AllSemaphores as) {
-        allSemaphs = as;
-        sem1 = allSemaphs.r;
-        sem2 = allSemaphs.s;
-        procB(sem1, sem2);
+public class ProcessB extends Thread {
+    Semaphore semR;
+    Semaphore semS;
+    public ProcessB(Semaphore sem1, Semaphore sem2) {
+        this.semR = sem1;
+        this.semS = sem2;
     }
 
-    void procB(Semaphore sem1, Semaphore sem2){
-        allSemaphs.p(sem2);
-        allSemaphs.p(sem1);
+    public void run(){
         try {
-            wait();
+            semS.acquire();
+            semR.acquire();
+            try {
+                Thread.sleep(1000);
+            }
+            catch (InterruptedException e){}
+            semR.release();
+            semS.release();
         }
-        catch (InterruptedException e){}
-        allSemaphs.v(sem1);
-        allSemaphs.v(sem2);
+        catch (Exception e){}
     }
 }
