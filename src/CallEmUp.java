@@ -17,7 +17,7 @@ public class CallEmUp {
 
     }
 
-    static public void main(String[] args) throws InterruptedException {
+    static public void main(String[] args)  {
         CallEmUp callEmUpInst = new CallEmUp();
     }
 }
