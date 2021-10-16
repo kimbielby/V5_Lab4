@@ -3,6 +3,7 @@ import java.util.concurrent.Semaphore;
 public class ProcessB extends Thread {
     Semaphore semR;
     Semaphore semS;
+
     public ProcessB(Semaphore sem1, Semaphore sem2) {
         this.semR = sem1;
         this.semS = sem2;

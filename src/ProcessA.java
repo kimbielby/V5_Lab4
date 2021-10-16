@@ -15,11 +15,12 @@ public class ProcessA extends Thread {
             semS.acquire();
             try {
                 Thread.sleep(1000);
-            } catch (InterruptedException e) {
             }
+            catch (InterruptedException e) {}
             semS.release();
             semR.release();
-        } catch (Exception e) {}
+        }
+        catch (Exception e) {}
 
 
         // Deadlock has been achieved
